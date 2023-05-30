@@ -1,0 +1,24 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* shuffle(int* nums, int numsSize, int n, int* returnSize){
+    
+    int *shuf=0,*x=0,*y=0,loc=0;
+
+    x=nums;
+    y=x+n;
+    x=nums;
+
+    shuf=(int*)calloc(numsSize,sizeof(int));
+
+    for(int i=0;i<n;i++){
+        shuf[loc]=*x;
+        loc++;
+        shuf[loc]=*y;
+        loc++;
+        x++;
+        y++;
+    }
+    *returnSize=numsSize;
+return shuf;
+}
