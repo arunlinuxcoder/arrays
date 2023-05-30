@@ -1,0 +1,15 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* getConcatenation(int* nums, int numsSize, int* returnSize){
+    int *cat=0,*temp=0;
+
+    cat=(int*)calloc(numsSize*2,sizeof(int));
+
+    memcpy(cat,nums,numsSize*sizeof(int));
+    temp=cat;
+    temp=temp+numsSize;
+    memcpy(temp,nums,numsSize*sizeof(int));
+    *returnSize=numsSize*2;
+    return cat;
+}
